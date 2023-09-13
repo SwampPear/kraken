@@ -1,4 +1,5 @@
 from SASConnection import SASConnection
+from ExcelConnection import ExcelConnection
 from dotenv import load_dotenv
 import os
 
@@ -16,5 +17,10 @@ def setup_sas():
     return SASConnection(_server, _server_port, _iom_protocol, _creds, _server_id)
 
 
+def setup_excel():
+    return ExcelConnection()
+
+
 if __name__ == '__main__':
-    sas = setup_sas()
+    #sas = setup_sas()
+    excel = setup_excel()

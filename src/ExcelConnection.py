@@ -1,3 +1,8 @@
+import win32com.client
+
+
 class ExcelConnection:
 	def __init__(self) -> None:
-		pass
+		excel = win32com.client.gencache.EnsureDispatch('Excel.Application')
+		print(excel.Workbooks.Count)
+
