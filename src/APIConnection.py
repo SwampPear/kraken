@@ -1,3 +1,4 @@
 class APIConnection:
-	def __init__(self):
-		pass
+	def __init__(self, endpoint: str) -> None:
+		self.endpoint = endpoint
+		
