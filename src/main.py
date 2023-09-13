@@ -1,6 +1,5 @@
-import win32com
+from SASConnection import SASConnection
 
 
-sas = saspy.SASsession()
-
-print('asdfd')
+if __name__ == '__main__':
+    print('main')
