@@ -1,6 +1,6 @@
-from APIConnection import APIConnection
+from BaseAPIConnection import BaseAPIConnection
 
 
-class SASConnection(APIConnection):
+class SASConnection(BaseAPIConnection):
 	def __init__(self, endpoint: str) -> None:
 		super().__init__(endpoint)

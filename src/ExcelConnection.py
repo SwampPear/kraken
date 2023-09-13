@@ -1,7 +1,6 @@
-from APIConnection import APIConnection
+from BaseAPIConnection import BaseAPIConnection
 
 
-class ExcelConnection(APIConnection):
+class ExcelConnection(BaseAPIConnection):
 	def __init__(self, endpoint: str) -> None:
 		super().__init__(endpoint)
-		
