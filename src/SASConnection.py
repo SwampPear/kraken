@@ -1,21 +1,20 @@
 import win32com.client
-import os
 
 
 class SASConnection:
-	def __init__(self) -> None:
+	def __init__(self, server, server_port, iom_protocol, creds, server_id) -> None:
 		self.factory = win32com.client.Dispatch('SASObjectManager.ObjectFactoryMulti2')
-		self.server_def = self.init_server_def()
-		self.sas = self.init_sas
+		self.server_def = self.init_server_def(server, server_port, iom_protocol, creds, server_id)
+		self.sas = self.init_sas()
 
-	def init_server_def(self):
+	def init_server_def(self, server, server_port, iom_protocol, creds, server_id):
 		server_def = win32com.client.Dispatch('SASObjectManager.ServerDef')
 		
-		server_def.MachineDNSName = os.getenv('SERVER')			# server name
-		server_def.Port = os.getenv('SERVER_PORT')				# workspace server port
-		server_def.Protocol = os.getenv('IOM_PROTOCOL')			# 2 = IOM protocol
-		server_def.BridgeSecurityPackage = os.getenv('UP')		# username/password
-		server_def.ClassIdentifier = os.getenv('SERVER_ID')		# workspace server id
+		server_def.MachineDNSName = server			# server name
+		server_def.Port = server_port				# workspace server port
+		server_def.Protocol = iom_protocol			# 2 = IOM protocol
+		server_def.BridgeSecurityPackage = creds	# username/password
+		server_def.ClassIdentifier = server_id		# workspace server id
 
 		return server_def
 
