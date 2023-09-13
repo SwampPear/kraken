@@ -4,9 +4,8 @@ import os
 
 class ExcelConnection:
 	def __init__(self) -> None:
-		excel = win32.gencache.EnsureDispatch('Excel.Application')
-		wb = excel.Workbooks.Open(f'{os.getcwd()}\\test.xlsx')
-		print(excel.Workbooks.Count)
-		print(os.getcwd())
-		print(f'{os.getcwd()}\\test.xlsx')
-		
+		self.excel = win32.gencache.EnsureDispatch('Excel.Application')
+
+	
+	def open_workbook(self, path):
+		return self.excel.Workbooks.Open(f'{os.getcwd()}\\test.xlsx')
