@@ -8,4 +8,5 @@ class ExcelConnection:
 		wb = excel.Workbooks.Open(f'{os.getcwd()}\\test.xlsx')
 		print(excel.Workbooks.Count)
 		print(os.getcwd())
+		print(f'{os.getcwd()}\\test.xlsx')
 		
