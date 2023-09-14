@@ -1,9 +1,10 @@
+from typing import Union, Optional
 import win32com.client as win32
-import os
+
 
 
 class Excel:
-	def __init__(self, path) -> None:
+	def __init__(self, path: str) -> None:
 		self.excel = win32.gencache.EnsureDispatch('Excel.Application')
 		self.workbook = self.excel.Workbooks.Open(path)
 
@@ -20,11 +21,11 @@ class Excel:
 		self.excel.Quit()
 
 	
-	def sheets(self):
+	def sheets(self) -> object:
 		return self.workbook.Worksheets
 
 	
-	def sheet(self, index=None, name=None):
+	def sheet(self, index: Optional[int]=None, name: Optional[str]=None) -> Union[object, None]:
 		if name:
 			for sheet in self.sheets():
 				if sheet.Name == name:
@@ -34,12 +35,3 @@ class Excel:
 		
 		else:
 			return self.workbook.Worksheets(index)
-	
-	"""
-	def sheet(self, name):
-		for _sheet in self.sheets():
-			if _sheet.Name == name:
-				return _sheet
-			
-		return  None
-	"""

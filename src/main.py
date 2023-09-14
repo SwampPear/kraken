@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     excel = Excel(file)
 
-    print(excel.sheet(name='Sheet1').Name)
+    print(type(excel.sheet(name='Sheet1')))
 
     #excel.close()
     #excel.exit()
