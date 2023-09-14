@@ -7,11 +7,10 @@ class Excel:
 		self.excel = win32.gencache.EnsureDispatch('Excel.Application')
 		self.workbook = self.excel.Workbooks.Open(path)
 
-	
 	def save(self) -> None:
 		self.workbook.Save()
 
-	
+
 	def close(self) -> None:
 		self.save()
 		self.workbook.Close()
@@ -21,13 +20,26 @@ class Excel:
 		self.excel.Quit()
 
 	
-	def sheet(self, index):
-		return self.workbook.Worksheets(index)
-	
+	def sheets(self):
+		return self.workbook.Worksheets
 
+	
+	def sheet(self, index=None, name=None):
+		if name:
+			for sheet in self.sheets():
+				if sheet.Name == name:
+					return sheet
+				
+			return None
+		
+		else:
+			return self.workbook.Worksheets(index)
+	
+	"""
 	def sheet(self, name):
-		for _sheet in self.workbook.Worksheets():
+		for _sheet in self.sheets():
 			if _sheet.Name == name:
 				return _sheet
 			
 		return  None
+	"""
