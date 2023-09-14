@@ -19,11 +19,14 @@ def setup_sas():
 
 
 if __name__ == '__main__':
-    file = f'{os.getcwd()}\\test.xlsx'
+    file = f'{os.getcwd()}\\TestTemplate.xlsx'
 
     excel = Excel(file)
 
-    print(type(excel.sheet(name='Sheet1')))
+    sheet = excel.sheet(name='Plane Closeout')
 
-    #excel.close()
-    #excel.exit()
+    for i in range(1, 6):
+        for j in range(1, 6):
+            print(sheet.Cells(i, j))
+
+    excel.save()
