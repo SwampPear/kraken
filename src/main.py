@@ -1,4 +1,5 @@
 from Excel import Excel
+from PowerBI import PowerBI
 import os
 
 """
@@ -14,6 +15,7 @@ def setup_sas():
 
 
 if __name__ == '__main__':
+    """
     file = f'{os.getcwd()}\\test.xlsx'
 
     excel = Excel(file)
@@ -25,5 +27,6 @@ if __name__ == '__main__':
             print(sheet.Cells(i, j))
 
     excel.save()
+    """
+    test = PowerBI()
 
-    excel.excel.Run("")
