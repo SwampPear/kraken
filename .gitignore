@@ -7,3 +7,6 @@ __pycache__/
 
 # design
 design/
+
+# asset files
+*.xlsx
