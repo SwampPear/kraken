@@ -5,7 +5,7 @@ import win32com.client as win32
 
 class Excel:
 	def __init__(self, path: str) -> None:
-		self.excel = win32.gencache.EnsureDispatch('Excel.Application')
+		self.app = win32.gencache.EnsureDispatch('Excel.Application')
 		self.workbook = self.excel.Workbooks.Open(path)
 
 	def save(self) -> None:
@@ -18,7 +18,7 @@ class Excel:
 
 
 	def exit(self) -> None:
-		self.excel.Quit()
+		self.app.Quit()
 
 	
 	def sheets(self) -> object:
