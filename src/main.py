@@ -28,5 +28,5 @@ if __name__ == '__main__':
 
     excel.save()
     """
-    test = PowerBI()
+    test = PowerBI('test')
 
