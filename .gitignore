@@ -4,3 +4,6 @@ env/
 
 # python
 __pycache__/
+
+# design
+design/
