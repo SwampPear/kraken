@@ -1,10 +1,5 @@
-from SASConnection import SASConnection
 from Excel import Excel
-from dotenv import load_dotenv
 import os
-
-
-load_dotenv()
 
 """
 def setup_sas():
@@ -19,14 +14,16 @@ def setup_sas():
 
 
 if __name__ == '__main__':
-    file = f'{os.getcwd()}\\TestTemplate.xlsx'
+    file = f'{os.getcwd()}\\test.xlsx'
 
     excel = Excel(file)
 
-    sheet = excel.sheet(name='Plane Closeout')
+    sheet = excel.sheet(name='Sheet1')
 
     for i in range(1, 6):
         for j in range(1, 6):
             print(sheet.Cells(i, j))
 
     excel.save()
+
+    excel.excel.Run("")
