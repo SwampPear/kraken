@@ -6,7 +6,8 @@ import win32com.client as win32
 class Excel:
 	def __init__(self, path: str) -> None:
 		self.app = win32.gencache.EnsureDispatch('Excel.Application')
-		self.workbook = self.excel.Workbooks.Open(path)
+		self.workbook = self.app.Workbooks.Open(path)
+
 
 	def save(self) -> None:
 		self.workbook.Save()

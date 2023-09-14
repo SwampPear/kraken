@@ -1,5 +1,5 @@
 from typing import List
-from subprocess import check_call, DEVNULL, STDOUT, CalledProcessError
+from subprocess import check_call, DEVNULL, CalledProcessError
 import os
 
 
@@ -44,4 +44,10 @@ class PowerBI:
 		self.move_temp('Settings')
 		self.move_temp('Version')
 		self.move_temp('Report')
-	
+
+		# remove temp pbix
+		self.call_cmd(['del', f'{self.temp_dir}\\{self.path}.pbix'])
+
+
+	def save(self, name='t'):
+		self.call_cmd(['zip', '-r', f'{name}.pbix', f'{self.temp_dir}'])
