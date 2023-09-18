@@ -1,4 +1,4 @@
-from typing import Union, Optional
+from typing import Optional, List
 import win32com.client as win32
 
 
@@ -22,11 +22,11 @@ class Excel:
 		self.app.Quit()
 
 	
-	def sheets(self) -> object:
+	def sheets(self) -> List[object]:
 		return self.workbook.Worksheets
 
 	
-	def sheet(self, index: Optional[int]=None, name: Optional[str]=None) -> Union[object, None]:
+	def sheet(self, index: Optional[int]=None, name: Optional[str]=None) -> object:
 		if name:
 			for sheet in self.sheets():
 				if sheet.Name == name:

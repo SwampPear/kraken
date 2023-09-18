@@ -1,5 +1,6 @@
 from Excel import Excel
 from PowerBI import PowerBI
+from PowerPoint import PowerPoint
 import os
 
 """
@@ -29,6 +30,18 @@ if __name__ == '__main__':
     excel.save()
     """
     
-    test = PowerBI('test')
+    #test = PowerBI('test')
     #stest.save()
 
+    file = f'{os.getcwd()}\\test.pptx'
+
+    pp = PowerPoint(file)
+
+    # recon
+    slide = pp.slide(1) # slide good
+    shape = slide.Shapes(1).TextFrame.TextRange
+    print(shape)
+
+    # this should be default closing procedure, needs to be changed later
+    pp.exit()
+    #pp.close()
