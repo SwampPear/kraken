@@ -19,7 +19,7 @@ class PowerBI:
 			check_call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
 
 		except CalledProcessError:
-			pass # should change later
+			print('err')
 
 	
 	def move_temp(self, file: str) -> None:
@@ -40,14 +40,29 @@ class PowerBI:
 		self.move_temp('DataModel')
 		self.move_temp('DiagramLayout')
 		self.move_temp('MetaData')
-		self.move_temp('SecurityBindings')
 		self.move_temp('Settings')
 		self.move_temp('Version')
 		self.move_temp('Report')
+		self.move_temp('SecurityBindings')
+
+		# SecurityBindings must be removed
+		#self.call_cmd(['del', f'{self.root}\\SecurityBindings'])
 
 		# remove temp pbix
 		self.call_cmd(['del', f'{self.temp_dir}\\{self.path}.pbix'])
 
 
-	def save(self, name='t'):
-		self.call_cmd(['zip', '-r', f'{name}.pbix', f'{self.temp_dir}'])
+	def save(self, name='file2'):
+		#self.call_cmd(['zip', '-r', f'{name}.pbix', f'{self.temp_dir}'])
+		self.call_cmd([
+			'zip', 
+			f'{name}.pbix', 
+			f'{self.temp_dir}\\Report',
+			f'{self.temp_dir}\\[Content_Types].xml',
+			f'{self.temp_dir}\\DataModel',
+			f'{self.temp_dir}\\DiagramLayout',
+			f'{self.temp_dir}\\MetaData',
+			f'{self.temp_dir}\\Settings',
+			f'{self.temp_dir}\\Version',
+			f'{self.temp_dir}\\SecurityBindings'
+		])

@@ -12,3 +12,4 @@ test.py
 # asset files
 *.xlsx
 *.pbix
+*.pptx

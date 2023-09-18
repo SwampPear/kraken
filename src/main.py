@@ -30,5 +30,5 @@ if __name__ == '__main__':
     """
     
     test = PowerBI('test')
-    test.save()
+    #stest.save()
 
