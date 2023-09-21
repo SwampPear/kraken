@@ -13,3 +13,5 @@ test.py
 *.xlsx
 *.pbix
 *.pptx
+
+old/
